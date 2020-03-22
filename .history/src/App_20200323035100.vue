@@ -53,9 +53,8 @@
           return member
           // console.log(id, value)
         })
-      },
-    },
-  }
+      }
+    };
 </script>
 
 <style>

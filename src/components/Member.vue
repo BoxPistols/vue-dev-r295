@@ -2,7 +2,7 @@
   <div>
     <h3 class="fx">
       {{ member.id }} : {{ member.name }}
-      <MemberHeight :height="member.height" />
+      <MemberHeight :height="member.height" :changeHeight="changeHeight" :id="member.id"/>
     </h3>
   </div>
 </template>
@@ -11,7 +11,8 @@
 import MemberHeight from "./MemberHeight";
 export default {
   props: {
-    member: Object
+    member: Object,
+    changeHeight: Function
   },
   components: {
     MemberHeight

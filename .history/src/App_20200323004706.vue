@@ -44,18 +44,13 @@
       changeHeight(id, value) {
         const members = this.members
         this.members = members.map(member => {
-          if (id === member.id) {
-            return {
-              ...member,
-              height: member.height + value
-            }
-          }
           return member
-          // console.log(id, value)
         })
-      },
-    },
-  }
+        // eslint-disable-next-line no-console
+        console.log(id, value)
+      }
+    }
+  };
 </script>
 
 <style>

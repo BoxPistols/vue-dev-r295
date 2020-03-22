@@ -15,6 +15,7 @@
     },
 
     data() {},
+    // TODO: Map
     methods: {
       handle(value) {
         this.changeHeight(this.id, value)

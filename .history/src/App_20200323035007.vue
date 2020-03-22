@@ -50,12 +50,12 @@
               height: member.height + value
             }
           }
-          return member
-          // console.log(id, value)
         })
-      },
-    },
-  }
+        return member
+        // console.log(id, value)
+      }
+    }
+  };
 </script>
 
 <style>
