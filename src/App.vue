@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <h1>Hello App!</h1>
-    <Member
-      v-for="member in sortByMmbers"
-      :key="member.id"
-      :member="member"
-      :height="member.height"
-      :changeHeight="changeHeight"
-      @click="handleHeight"></Member>
+    <template v-for="member in sortByMmbers">
+      <Member
+        :key="member.id"
+        :member="member"
+        :height="member.height"
+        :changeHeight="changeHeight"
+        @click="handleHeight">
+      </Member>
+    </template>
   </div>
 </template>
 
