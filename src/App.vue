@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <h1>Hello App!</h1>
-    <Member :data="member" :team="teamName"/>
+    <Member
+      :data="member"
+      :team="teamName"
+      :changeHeight="changeHeight"
+      :reset="reset"/>
     <!-- <p> <router-link to="/foo">Go to Foo</router-link> <router-link
     to="/bar">Go to Bar</router-link> </p> <router-view></router-view>
     <MemberHeight/> -->
@@ -16,6 +20,16 @@
     components: {
       Member,
       // MemberHeight
+    },
+    methods: {
+      changeHeight(value) {
+        // eslint-disable-next-line no-console
+        console.log('test')
+        this.member.height = this.member.height + value
+      },
+      reset:function() {
+        this.member.height =  170
+      }
     },
     data() {
       return {

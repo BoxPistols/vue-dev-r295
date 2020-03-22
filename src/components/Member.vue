@@ -8,7 +8,7 @@
       /
       {{ data.position }}
     </p>
-    <MemberHeight :height="data.height"/>
+    <MemberHeight :height="data.height" :changeHeight="changeHeight" :reset="reset"/>
   </div>
 </template>
 
@@ -20,7 +20,9 @@
     },
     props: {
       data: Object,
-      team: String
+      team: String,
+      changeHeight: Function,
+      reset: Number
     },
     data() {
       return {}

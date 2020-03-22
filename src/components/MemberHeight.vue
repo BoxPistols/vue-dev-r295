@@ -1,13 +1,18 @@
 <template lang="">
   <div>
     <div :class="color">{{ height }}</div>
+    <button @click="changeHeight(1)">+</button>
+    <button @click="reset">reset</button>
+    <button @click="changeHeight(-1)">-</button>
   </div>
 </template>
 
 <script>
   export default {
     props: {
-      height: Number
+      height: Number,
+      changeHeight: Function,
+      reset: Number,
     },
     data() {
       return {};
