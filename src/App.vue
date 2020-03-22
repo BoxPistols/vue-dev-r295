@@ -1,24 +1,21 @@
 <template>
   <div id="app">
     <h1>Hello App!</h1>
-    <div></div>
-    <!--
-    <p>
-      <router-link to="/foo">Go to Foo</router-link>
-      <router-link to="/bar">Go to Bar</router-link>
-    </p>
-    <router-view></router-view>
-    -->
-    <Member :data="member"  :team="teamName"/>
+    <Member :data="member" :team="teamName"/>
+    <!-- <p> <router-link to="/foo">Go to Foo</router-link> <router-link
+    to="/bar">Go to Bar</router-link> </p> <router-view></router-view>
+    <MemberHeight/> -->
   </div>
 </template>
 
 <script>
-  import Member from './components/Member.vue'
+  import Member from './components/Member'
+  // import MemberHeight from './components/MemberHeight'
   export default {
     name: 'app',
     components: {
-      Member
+      Member,
+      // MemberHeight
     },
     data() {
       return {
@@ -27,7 +24,7 @@
           name: '渡邊',
           id: 1,
           position: 'center',
-          height: 167,
+          height: 167
         }
       }
     }
