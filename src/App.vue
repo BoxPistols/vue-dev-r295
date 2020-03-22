@@ -24,7 +24,7 @@
           name: '渡邊',
           id: 1,
           position: 'center',
-          height: 167
+          height: 175
         }
       }
     }
