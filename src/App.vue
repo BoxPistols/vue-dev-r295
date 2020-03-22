@@ -1,45 +1,37 @@
 <template>
   <div id="app">
     <h1>Hello App!</h1>
-    <Member
-      :data="member"
-      :team="teamName"
-      :changeHeight="changeHeight"
-      :reset="reset"/>
-    <!-- <p> <router-link to="/foo">Go to Foo</router-link> <router-link
-    to="/bar">Go to Bar</router-link> </p> <router-view></router-view>
-    <MemberHeight/> -->
+    <Member v-for="member in members" :key="member.id" :member="member" :height="member.height"></Member>
   </div>
 </template>
 
 <script>
   import Member from './components/Member'
-  // import MemberHeight from './components/MemberHeight'
   export default {
     name: 'app',
     components: {
-      Member,
-      // MemberHeight
-    },
-    methods: {
-      changeHeight(value) {
-        // eslint-disable-next-line no-console
-        console.log('test')
-        this.member.height = this.member.height + value
-      },
-      reset:function() {
-        this.member.height =  170
-      }
+      Member
     },
     data() {
       return {
-        teamName: "MyTeam Name",
-        member: {
-          name: '渡邊',
-          id: 1,
-          position: 'center',
-          height: 175
-        }
+        members: [
+          {
+            name: '渡邊',
+            id: 1,
+            position: 'center',
+            height: 175
+          }, {
+            name: '田中',
+            id: 2,
+            position: 'forward',
+            height: 165
+          }, {
+            name: '山尾',
+            id: 3,
+            position: 'back',
+            height: 185
+          }
+        ]
       }
     }
   };

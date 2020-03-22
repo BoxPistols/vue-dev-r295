@@ -1,31 +1,29 @@
 <template lang="">
   <div>
-    <h2>{{ team }}</h2>
-    <p>
-      {{ data.id }}
-      /
-      {{ data.name }}
-      /
-      {{ data.position }}
-    </p>
-    <MemberHeight :height="data.height" :changeHeight="changeHeight" :reset="reset"/>
+    <h3 class="fx">
+      {{ member.id }} : {{ member.name }}
+      <MemberHeight :height="member.height" />
+    </h3>
   </div>
 </template>
 
 <script>
-  import MemberHeight from './MemberHeight'
-  export default {
-    components: {
-      MemberHeight
-    },
-    props: {
-      data: Object,
-      team: String,
-      changeHeight: Function,
-      reset: Number
-    },
-    data() {
-      return {}
-    }
+import MemberHeight from "./MemberHeight";
+export default {
+  props: {
+    member: Object
+  },
+  components: {
+    MemberHeight
+  },
+  data() {
+    return {};
   }
+};
 </script>
+
+<style scoped="scoped" lang="sass">
+.h3, .fx
+  display: flex
+  justify-content: center
+</style>
