@@ -51,7 +51,6 @@
             }
           }
           return member
-          // console.log(id, value)
         })
       },
     },
