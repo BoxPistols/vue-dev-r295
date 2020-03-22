@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Hello App!</h1>
     <Member
-      v-for="member in members"
+      v-for="member in sortByMmbers"
       :key="member.id"
       :member="member"
       :height="member.height"
@@ -13,6 +13,7 @@
 
 <script>
   import Member from './components/Member'
+  import _sortBy from 'lodash.sortby'
   export default {
     name: 'app',
     components: {
@@ -40,6 +41,12 @@
         ]
       }
     },
+    computed: {
+      sortByMmbers() {
+        const members = this.members
+        return _sortBy(members, 'height').reverse()
+      }
+    },
     methods: {
       changeHeight(id, value) {
         const members = this.members
@@ -52,8 +59,8 @@
           }
           return member
         })
-      },
-    },
+      }
+    }
   }
 </script>
 
