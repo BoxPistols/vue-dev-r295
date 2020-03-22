@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    
+    <router-view></router-view>
+    
     <h1>Hello App!</h1>
     <template v-for="member in sortByMmbers">
       <Member
