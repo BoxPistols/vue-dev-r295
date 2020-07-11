@@ -1,22 +1,12 @@
 <template lang="">
   <div>
-    <h3 class="fx">
-      {{ member.id }} : {{ member.name }}
-      <MemberHeight :height="member.height" :changeHeight="changeHeight" :id="member.id"/>
-    </h3>
+    <h3 class="fx"> Member</h3>
   </div>
 </template>
 
 <script>
-import MemberHeight from "./MemberHeight";
+
 export default {
-  props: {
-    member: Object,
-    changeHeight: Function
-  },
-  components: {
-    MemberHeight
-  },
   data() {
     return {};
   }

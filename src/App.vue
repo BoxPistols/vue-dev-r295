@@ -1,81 +1,95 @@
 <template>
   <div id="app">
-    
-    <router-view></router-view>
-    
     <h1>Hello App!</h1>
-    <template v-for="member in sortByMmbers">
-      <Member
-        :key="member.id"
-        :member="member"
-        :height="member.height"
-        :changeHeight="changeHeight"
-        @click="handleHeight">
-      </Member>
-    </template>
+    <div class="memeber__lay">
+      <div class="memeber__org">
+        <div
+          class="memeber__mol"
+          :class="heightColor(member.height)"
+          v-for="member in members"
+          :key="member.id"
+        >
+          <div class="memeber__atm id">{{ member.id }}</div>
+          <div class="memeber__atm name">{{ member.name }}</div>
+          <div class="memeber__atm position">{{ member.position }}</div>
+          <div class="memeber__atm height">{{ member.height }}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import Member from './components/Member'
-  import _sortBy from 'lodash.sortby'
-  export default {
-    name: 'app',
-    components: {
-      Member
-    },
-    data() {
-      return {
-        members: [
-          {
-            name: '渡邊',
-            id: 1,
-            position: 'center',
-            height: 175
-          }, {
-            name: '田中',
-            id: 2,
-            position: 'forward',
-            height: 165
-          }, {
-            name: '山尾',
-            id: 3,
-            position: 'back',
-            height: 185
-          }
-        ]
+export default {
+  name: "app",
+  data() {
+    return {
+      height: "",
+      members: [
+        {
+          id: 1,
+          name: "渡邊",
+          position: "center",
+          height: 169
+        },
+        {
+          id: 2,
+          name: "田中",
+          position: "forward",
+          height: 165
+        },
+        {
+          name: "山尾",
+          id: 3,
+          position: "back",
+          height: 185
+        },
+        {
+          name: "金田",
+          id: 4,
+          position: "both",
+          height: 175
+        }
+      ]
+    };
+  },
+  methods: {
+    heightColor(v) {
+      if (v > 180) {
+        return "teal";
       }
-    },
-    computed: {
-      sortByMmbers() {
-        const members = this.members
-        return _sortBy(members, 'height').reverse()
-      }
-    },
-    methods: {
-      changeHeight(id, value) {
-        const members = this.members
-        this.members = members.map(member => {
-          if (id === member.id) {
-            return {
-              ...member,
-              height: member.height + value
-            }
-          }
-          return member
-        })
+      if (v < 170) {
+        return "pink";
       }
     }
   }
+};
 </script>
 
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
+<style lang="sass" scoped>
+#app
+  font-family: "Avenir", Helvetica, Arial, sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-align: center
+  color: #2c3e50
+  margin-top: 60px
+
+.memeber
+  &__org
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+  &__mol
+    display: flex
+    align-items: center
+    font-size: 24px
+  &__atm
+    margin: 4px
+
+.teal
+  color: teal
+.pink
+  color: pink
 </style>

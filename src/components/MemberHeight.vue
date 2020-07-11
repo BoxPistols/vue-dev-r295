@@ -1,26 +1,12 @@
 <template lang="">
   <div>
-    <div class="height">
-      / 身長：{{ height }}</div>
-    <button @click="handle(1)">+</button>
-    <button @click="handle(-1)">-</button>
+    ht
   </div>
 </template>
 <script>
-  export default {
-    props: {
-      height: Number,
-      changeHeight: Function,
-      id: Number
-    },
-
-    data() {},
-    methods: {
-      handle(value) {
-        this.changeHeight(this.id, value)
-      }
-    }
-  };
+export default {
+  data() {}
+};
 </script>
 
-<style scoped="scoped" lang="sass"></style>
+<style scoped="scoped" lang="sass"></style>“
