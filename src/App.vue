@@ -6,7 +6,7 @@
         <div
           class="memeber__mol"
           :class="heightColor(member.height)"
-          v-for="member in members"
+          v-for="member in over170"
           :key="member.id"
         >
           <div class="memeber__atm id">{{ member.id }}</div>
@@ -14,6 +14,7 @@
           <div class="memeber__atm position">{{ member.position }}</div>
           <div class="memeber__atm height">{{ member.height }}</div>
         </div>
+        <button class="btn">height</button>
       </div>
     </div>
   </div>
@@ -61,6 +62,13 @@ export default {
       if (v < 170) {
         return "pink";
       }
+    }
+  },
+  computed: {
+    over170() {
+      return this.members.filter(e => {
+        return e.height > 170;
+      });
     }
   }
 };
